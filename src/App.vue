@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<vue-cosk />
+		<vue-cosk mode="fill" />
 	</div>
 </template>
 
@@ -9,6 +9,7 @@
 
 	export default {
 		name: 'app',
+
 		components: {
 			VueCosk,
 		}

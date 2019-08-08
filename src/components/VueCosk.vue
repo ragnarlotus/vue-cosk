@@ -1,13 +1,20 @@
 <template>
-	<svg :width="size.width +'px'" :height="size.height +'px'" :class="cssClass">
+	<svg
+		v-if="mounted"
+		:width="px(size.width)"
+		:height="px(size.height)"
+		class="vue-cosk"
+		:class="cssClass">
+
 		<line
+			v-if="type === 'paragraph'"
 			v-for="line in lines"
-			:x1="posX() +'px'"
-			:y1="posY(line) +'px'"
-			:x2="(size.width - posX()) +'px'"
-			:y2="posY(line) +'px'"
+			:x1="px(posX())"
+			:y1="px(posY(line))"
+			:x2="px(size.width - posX())"
+			:y2="px(posY(line))"
 			:stroke="strokeColor"
-			:stroke-width="fontSize +'px'"
+			:stroke-width="px(fontSize)"
 		/>
 	</svg>
 </template>
@@ -17,6 +24,7 @@
 		name: 'VueCosk',
 
 		data: () => ({
+			mounted: false,
 		}),
 
 		props: {
@@ -53,7 +61,7 @@
 
 		computed: {
 			parent() {
-				return this.$parent.$el;
+				return this.$el.parentNode;
 			},
 
 			size() {
@@ -68,11 +76,19 @@
 			},
 
 			strokeWidth() {
-				return this.fontSize +'px';
+				return this.px(this.fontSize);
 			},
 		},
 
+		mounted() {
+			this.mounted = true;
+		},
+
 		methods: {
+			px(value) {
+				return value +'px';
+			},
+
 			posX() {
 				return this.fontSize / 2;
 			},
@@ -86,40 +102,24 @@
 </script>
 
 <style lang="scss">
-	@keyframes fadeInOut {
-		from {
-			opacity: 1;
-		}
-
-		to {
-			opacity: 0.2;
-		}
-	}
-
-	@keyframes glow {
-		from {
-			box-shadow: none;
-		}
-
-		to {
-			box-shadow: none;
-		}
-	}
-
-	svg {
+	svg.vue-cosk {
 		line {
 			stroke-linecap: round;
 		}
 
 		&.load {
 			line {
-				animation: fadeInOut 3s infinite alternate;
+				animation: fadeInOut 1s linear infinite alternate;
 			}
 		}
 
-		&.fill {
-			line {
-				animation: fadeInOut 3s infinite alternate;
+		@keyframes fadeInOut {
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0.2;
 			}
 		}
 	}
