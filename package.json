@@ -19,7 +19,7 @@
   "main": "dist/vue-cosk.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "bundle": "vue-cli-service build --target lib --name vue-flux \"src/components/index.js\""
+    "bundle": "vue-cli-service build --target lib --name vue-cosk \"src/components/index.js\""
   },
   "files": [
     "dist"
