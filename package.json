@@ -1,11 +1,29 @@
 {
   "name": "vue-cosk",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "Vue content skeleton",
+  "author": "ragnar lotus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deulos/vue-cosk"
+  },
+  "keywords": [
+    "vue",
+    "content",
+    "skeleton"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/deulos/vue-cosk/issues",
+  "homepage": "https://github.com/deulos/vue-cosk",
+  "main": "dist/vue-cosk.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "bundle": "vue-cli-service build --target lib --name vue-flux \"src/components/index.js\""
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
