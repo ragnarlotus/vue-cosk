@@ -1,1 +1,1 @@
-export { default as VueCosk } from './VueCosk.vue';
+export { default as VcParagraph } from './VcParagraph';
