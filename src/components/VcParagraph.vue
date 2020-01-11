@@ -8,7 +8,7 @@
 			<g
 				fill="none"
 				:stroke="strokeColor"
-				:stroke-width="px(fs)"
+				:stroke-width="px(fs * 0.60)"
 			>
 				<line
 					v-for="line in lines"
@@ -61,6 +61,9 @@
 			},
 
 			lh() {
+				if (/[a-z]/.test(this.cs.lineHeight))
+					this.cs.lineHeight = this.fs * 1.2;
+
 				return parseFloat(this.lineHeight || this.cs.lineHeight || 0);
 			},
 
@@ -74,7 +77,12 @@
 		},
 
 		mounted() {
-			this.cs = getComputedStyle(this.$el);
+			let { fontSize, lineHeight } = getComputedStyle(this.$el)
+
+			this.cs = {
+				fontSize,
+				lineHeight,
+			};
 		},
 
 		methods: {

@@ -1,6 +1,13 @@
 <template>
 	<div id="app">
-		<vc-paragraph mode="fill" font-size="12" />
+		<vc-paragraph mode="fill" />
+
+		<p>
+			asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd
+			asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd
+			asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd asasd asd
+			asasd asd asasd asd asasd asd asasd asd asasd asasd asd asasd asasd asd asasd asasd asd asasd
+		</p>
 	</div>
 </template>
 

@@ -1,6 +1,6 @@
 {
   "name": "vue-cosk",
-  "version": "0.2.1",
+  "version": "0.2.4",
   "private": false,
   "description": "Vue content skeleton",
   "author": "ragnar lotus",
@@ -19,10 +19,14 @@
   "main": "dist/vue-cosk.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "bundle": "vue-cli-service build --target lib --name vue-cosk \"src/components/index.js\""
+    "build": "npm run bundle:nossr && npm run bundle:ssr",
+    "bundle": "vue-cli-service build --target lib --name vue-cosk \"src/components/index.js\"",
+    "bundle:nossr": "set EXTRACT_CSS=false&& npm run bundle -- --dest dist",
+    "bundle:ssr": "set EXTRACT_CSS=true&& npm run bundle -- --dest dist-ssr"
   },
   "files": [
-    "dist"
+    "dist",
+    "dist-ssr"
   ],
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
